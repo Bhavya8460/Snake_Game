@@ -6,10 +6,10 @@ FONT = ('Courier', 15, 'normal')
 class ScoreBoard(Turtle):
     def __init__(self):
         super().__init__()
-        self.get_highest_socre()
         self.color('white')
         self.score = 0
-        self.high_score = self.get_highest_socre()
+        with open('data.txt') as data:
+            self.high_score = int(data.read())
         self.penup()
         self.hideturtle()
         self.goto(-10, 280)
@@ -22,7 +22,8 @@ class ScoreBoard(Turtle):
     def reset(self):
         if self.score > self.high_score:
             self.high_score = self.score
-            self.update_highest_score()
+            with open('data.txt', mode='w') as data:
+                data.write(f'{self.high_score}')
         self.score = 0
         self.update_score()
 
@@ -34,12 +35,12 @@ class ScoreBoard(Turtle):
         self.score += 1
         self.update_score()
 
-    def get_highest_socre(self):
-        with open('data.txt') as file:
-            data = file.read()
-            return int(data)
-
-    def update_highest_score(self):
-        with open('data.txt', mode='w') as file:
-            data = file.write(f'{self.high_score}')
-            return int(data)
+    # def get_highest_socre(self):
+    #     with open('data.txt') as file:
+    #         data = file.read()
+    #         return int(data)
+    #
+    # def update_highest_score(self):
+    #     with open('data.txt', mode='w') as file:
+    #         data = file.write(f'{self.high_score}')
+    #         return int(data)
