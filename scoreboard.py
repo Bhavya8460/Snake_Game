@@ -27,20 +27,7 @@ class ScoreBoard(Turtle):
         self.score = 0
         self.update_score()
 
-    # def game_over(self):
-    #     self.goto(0, 0)
-    #     self.write('GAME OVER', align=ALIGNMENT, font=FONT)
-
     def increase_score(self):
         self.score += 1
         self.update_score()
 
-    # def get_highest_socre(self):
-    #     with open('data.txt') as file:
-    #         data = file.read()
-    #         return int(data)
-    #
-    # def update_highest_score(self):
-    #     with open('data.txt', mode='w') as file:
-    #         data = file.write(f'{self.high_score}')
-    #         return int(data)
